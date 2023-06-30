@@ -1,15 +1,19 @@
+import modelos.Conta;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         String nome = "Jose";
+        String cpf = "000.000.000-00";
         String tipoConta = "Corrente";
+        String dataCadastro = "dd/MM/yyyy";
         double saldo = 1599.99;
         int opcao = 0;
+        Conta conta = new Conta(nome,cpf,dataCadastro,saldo);
         System.out.println("*********************************");
-        System.out.println("Nome do Cliente: " + nome);
-        System.out.println("Tipo da Conta: " + tipoConta);
-        System.out.println("Saldo Atual: "+saldo);
+        System.out.println(conta.getInformacoesConta());
         System.out.println("*********************************");
 
         String menu = """
@@ -25,7 +29,7 @@ public class Main {
             opcao = leitor.nextInt();
 
             if(opcao==1) {
-                System.out.printf("\nO saldo atualizado é: " + saldo);
+                System.out.printf("\nO saldo atualizado é: " + conta.getSaldo());
             }else if(opcao == 2){
                 System.out.printf("\nValor da transferência: ");
                 double valor = leitor.nextDouble();
